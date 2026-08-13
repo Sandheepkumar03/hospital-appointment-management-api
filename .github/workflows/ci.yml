@@ -24,7 +24,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install fastapi uvicorn sqlalchemy pydantic pytest httpx 
+          pip install fastapi uvicorn sqlalchemy pydantic pytest 
+          python -m pip install httpx
+          python -m pip show httpx
 
       - name: Run tests
         run: pytest
