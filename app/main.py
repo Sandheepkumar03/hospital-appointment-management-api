@@ -2,9 +2,12 @@
 
 from fastapi import FastAPI
 
+from app.database import Base, engine
 from app.routers.patient import router as patient_router
 from app.routers.doctor import router as doctor_router
 from app.routers.appointment import router as appointment_router
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="Hospital Appointment Management API",
